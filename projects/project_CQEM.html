@@ -43,7 +43,7 @@
                     Another work is p-refinement for FEM basis function, which include using higher order basis function to improve the accuracy of the simulation. 
                 </p>
 
-                
+                <!-- Hierarchical Basis -->
                 <h2>Hierarchical Basis Functions in Finite Element Method</h2>
                 <p>The understanding of the FEM is based on chapter 3 in the lecture note of <a href="../files/CQEM_lecture_note.pdf" target="_blank">ECE 61800: Numerical Electromagnetics by Prof. Roth</a> and understanding of the hierarchical basis function is based chapter 3.7 in <a href="../files/CQEM_Jin_FEM_Hierarchical.pdf">The Finite Element Method in Electromagnetics (Wiley) by Prof. Jin</a>. </p>
 
@@ -66,21 +66,22 @@
                 <p>The simulation result for eivenvalues on EM for a cavity hole in the infinite plane is displayed below </p>
 
                 <img src="../images/projects/cqem1.png" alt="CQEM Simulation Results" class="post-image">
-                <img src="../images/projects/cqem2.png" alt="CQEM Analysis" class="post-image">
 
                 <p>The simulation include 200 runs for each percentage of order 1 inclusion. The x-axis means the proportion of order 1 included. 0 means purely order 2, and 1 means purely order1. The y-axis means the value of eigenvalue in GHz, where the dashed line means analytical result. The third order is not simulated because the indexing is not finished this semester.
                 </p>
                 <p>
                     By observing purely second order and purely first order, we can tell that fully second order out-performed the first order. However, we see the mix of first and second order has unexpected result, where there's a decrease in accuracy at the beginning where we just start adding in second order. I think this is because 200 runs is too little, and, in some cases, we have the first order on complex geometries and second order on simple geometries, but this is only a guess. I don't know why there's a decrease in accuracy. This can be figured out by researchers next semester. 
                 </p>
-                
+
+                <!-- Gaussian Quadrature -->
                 <h2>Gaussian Quadrature Rule</h2>
                 <p>The implementation of Gaussian Quadrature Rule is based on <a href="../files/CQEM_Quadrature.pdf">This</a> paper.</p>
-                <p>This feature is implemented to simplify the calculation of K matrix (3.45) in <a href="../files/CQEM_lecture_note.pdf" target="_blank">note</a>, where the basis function is evaluated with each of simplex coordinate dedinition as descriped in Chapter 3.6 and equation (3.33) in the <a href="../files/CQEM_lecture_note.pdf" target="_blank">note</a>. </p>
+                <p>This feature is implemented to simplify the calculation of K matrix (3.45) in <a href="../files/CQEM_lecture_note.pdf" target="_blank">note</a>, where the basis function is evaluated with each of simplex coordinate as descriped in Chapter 3.6 and equation (3.33) in the <a href="../files/CQEM_lecture_note.pdf" target="_blank">note</a>. </p>
                 <p>
                     We are able to calculate integration form of K matrix in summation form at specific integration points for accurate result, according to the paper.
                 </p>
                 
+                <!-- Circuit Simulator -->
                 <h2>Circuit Simulator</h2>
 
                 <p>
