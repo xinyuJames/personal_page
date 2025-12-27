@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog post">
-    <title>Post</title>
+    <title>ASIC</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -27,14 +27,139 @@
         <div class="container">
             <!-- title -->
             <header class="post-header">
-                <h1>USB 1.1 Bulk Transfer Design and Synthesis</h1>
-                <span class="post-date">December 26, 2025</span>
+                <h1>ASIC Design and Synthesis</h1>
+                <span class="post-date">Documented 12/27/2025</span>
             </header>
 
             <!-- article -->
             <div class="post-body">
                 <p>
-                    This has not been documented yet.
+                    The projects are done under <a href="https://engineering.purdue.edu/ECE/Academics/Undergraduates/UGO/CourseInfo/courseInfo?courseid=389.0&show=true&type=undergrad">ECE337: ASIC Design Lab</a>. This is a course with the most workload I had so far. 
+                </p>
+                <p>
+                    Totally three designs are made: UART Receiver + APB; FIR-filter + AHB; and USB 1.1 Bulk Transfer Type.
+                </p>
+
+                <!-- USB -->
+                <h2>USB 1.1 Bulk Transfer Type</h2>
+                <p>
+                    This project is done in a group of 3. Each member is responsible for one part of the design: AHB subordinate, Receiver, Transmitter + Data Buffer.
+                </p>
+                <p>
+                    I am responsible for AHB subordinate, with Burst Transfer implemented. The burst transfer and hready is implemented according to chapter 3.6 and 3.7 from <a href="../files/ASIC_IHI0033C_amba_ahb_protocol_spec.pdf">this</a>.
+                </p>
+                <h3>
+                    AHB Subordinate
+                </h3>
+                <p>
+                    The top module RTL is shown below. 
+                </p>
+                <img src="../images/projects/main/main_USB_Top.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    The AHB subordinate RTL is shown below.
+                </p>
+                <img src="../images/projects/ASIC/ASIC_part1_ahb.jpg" alt="CQEM Simulation Results" class="post-image">
+                <img src="../images/projects/ASIC/ASIC_part2_ahb.jpg" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    The detailed description of the AHB wave form is shown below.
+                </p>
+                <video controls style="width: 100%; max-width: 800px;">
+                    <source src="../videos/ASIC_ahb_wave.mp4" type="video/mp4">
+                    Your browser does not support the video display.
+                </video>
+                <p>
+
+                </p>
+                
+                <h3>
+                    USB Receiver
+                </h3>
+                <p>
+                    This part of work is done by Yize Wang. RTL is shown below.
+                </p>
+                <img src="../images/projects/ASIC/ASIC RX RTL (Yize).png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    The wave for Receiver is here. the CRC and Bit Stuffing are implemented. I am not responsible for this part, so I cannot make a detailed video about it. 
+                </p>
+                <img src="../images/projects/ASIC/rx_wave.png" alt="CQEM Simulation Results" class="post-image">
+                <h3>
+                    USB Transmitter + Data Buffer
+                </h3>
+                <p>
+                    This part of work is done by Peter Zhou. RTL is shown below.
+                </p>
+                <img src="../images/projects/ASIC/ASIC TX RTL (Peter).png" alt="CQEM Simulation Results" class="post-image">
+                <img src="../images/projects/ASIC/ASIC_Data Buffer RTL (Peter).png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    The wave for Transmitter is here. the CRC and Bit Stuffing are implemented. I am not responsible for this part, so I cannot make a detailed video about it. 
+                </p>
+                <img src="../images/projects/ASIC/tx_wave.png" alt="CQEM Simulation Results" class="post-image">
+                
+                <!-- FIR filter -->
+                <h2>
+                    FIR filter + AHB subordinate
+                </h2>
+                <p>
+                    FIR filter stands for Finite Impulse Response filter. According to the name, we can know that it is like a impulse sampling train with parameter in it. The implementation of this filter is 4-point filter with high pass behaviour. The image below shows the mathematical implementation. This implementation also has a AHB subordinate to communicate with the manager. 
+                </p>
+                <img src="../images/projects/ASIC/fir_math.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    FIR filter top module:
+                </p>
+                <img src="../images/projects/ASIC/ASIC_FIR-filter_top.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    FIR filter controller RTL and State Transition diagram:
+                </p>
+                <img src="../images/projects/ASIC/ASIC_RTL_controller_fir-filter.png" alt="CQEM Simulation Results" class="post-image">
+                <img src="../images/projects/ASIC/ASIC_transition_controller_fir-filter.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    FIR filter magnitude RTL:
+                </p>
+                <img src="../images/projects/ASIC/ASIC_RTL_magnitude_fir-filter.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    FIR filter AHB subordinate top module:
+                </p>
+                <img src="../images/projects/ASIC/ASIC_FIR_AHB_top.png" alt="CQEM Simulation Results" class="post-image">
+                <p>
+                    FIR filter AHB subordinate RTL and coefficient loader Transition Diagram:
+                </p>
+                <img src="../images/projects/ASIC/ASIC_RTL_AHB_fir-filter.png" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    The design is synthesized, and pass the testcases in the course. 
+                </p>
+
+                <!-- UART -->
+                <h2>
+                    UART Receiver + APB subordinate
+                </h2>
+                <p>
+                    APB is also a Bus Protocal. The difference between this and the AHB is that AHB pipelined the address and data phase, while APB read address first and then read the data. 
+                </p>
+                <p>
+                    UART Receiver top module:
+                </p>
+                <img src="../images/projects/ASIC/UART_top_module.png" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    UART Receiver RCU RTL and Transition Diagram:
+                </p>
+                <img src="../images/projects/ASIC/rcu_rtl.png" alt="CQEM Simulation Results" class="post-image">
+                <img src="../images/projects/ASIC/rcu_states.png" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    UART Receiver Timer RTL:
+                </p>
+                <img src="../images/projects/ASIC/timer_rtl.png" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    UART Receiver APB Subordinate:
+                </p>
+                <img src="../images/projects/ASIC/apb_subordinate.jpg" alt="CQEM Simulation Results" class="post-image">
+
+                <p>
+                    The design is synthesized, and pass the testcases in the course. 
                 </p>
 
             </div>

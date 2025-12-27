@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog post">
-    <title>Post</title>
+    <title>CQEM</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -60,12 +60,12 @@
                 <p>By implementing it, we will gain two advantages:</p>
                 <ul>
                     <li>It permits the use of basis functions of different orders in a single finite element mesh, which can facilitate the implementation of adaptive p-refinement </li>
-                    <li> Second, it provides a foundation in the development of multigrid and multilevel solvers or preconditioners for an efficient solution of finite element equations</li>
+                    <li>It provides a foundation in the development of multigrid and multilevel solvers or preconditioners for an efficient solution of finite element equations</li>
                 </ul>
                 <p>For my implementation, we mainly take advantage of the first one. The implementation for: scalar and gradient of scalar; and vector and curl of vector are varified by using finite difference method.</p>
                 <p>The simulation result for eivenvalues on EM for a cavity hole in the infinite plane is displayed below </p>
 
-                <img src="../images/projects/cqem1.png" alt="CQEM Simulation Results" class="post-image">
+                <img src="../images/projects/CQEM/cqem1.png" alt="CQEM Simulation Results" class="post-image">
 
                 <p>The simulation include 200 runs for each percentage of order 1 inclusion. The x-axis means the proportion of order 1 included. 0 means purely order 2, and 1 means purely order1. The y-axis means the value of eigenvalue in GHz, where the dashed line means analytical result. The third order is not simulated because the indexing is not finished this semester.
                 </p>

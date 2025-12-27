@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog post">
-    <title>Post</title>
+    <title>Health Check</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -28,14 +28,54 @@
             <!-- title -->
             <header class="post-header">
                 <h1>Health Checker Design and Assemble</h1>
-                <span class="post-date">December 26, 2025</span>
+                <span class="post-date">Documented 12/27/2025</span>
             </header>
 
             <!-- article -->
             <div class="post-body">
                 <p>
-                    This has not been documented yet.
+                    This project is done under <a href="https://engineering.purdue.edu/ECE/Academics/Undergraduates/UGO/UGO/UGO/CourseInfo/courseInfo?courseid=612&show=true&type=undergrad">ECE362: Microprocessor Systems and Interfacing</a>. This project used first half of content taught in the class. The other half mainly focused on assembly, single cycle processor, and hardware arithmetics.  
                 </p>
+
+                <h2>
+                    Overview
+                </h2>
+
+                <p>
+                    This project is done with Purdue Proton Board, PCB layout of the Proton Board is below.
+                </p>
+
+                <img src="../images/projects/HealthCheck/HealthCheck_proton1.png" alt="proton1" class="post-image">
+                <img src="../images/projects/HealthCheck/HealthCheck_proton2.png" alt="proton2" class="post-image">
+                <p>
+                    The Health Checker is able to measure the health information, including walking steps, heart rate, body temperature, and is able to display the informatin through a tft screen. If heart rate or body temperature exceeds the healthy range, the alarm will be triggered. 
+                </p>
+                <h2>
+                    Work
+                </h2>
+                <p>
+                    Here are the components we use:
+                </p>
+                <ul>
+                    <li>Body temperature sensor: MAX30205</li>
+                    <li>Heart rate sensor: MAX30102</li>
+                    <li>Accelerometer: AXDL345</li>
+                    <li>Power module: AP2112K-1.8</li>
+                    <li>A TFT display</li>
+                    <li>A LED</li>
+                </ul>
+                <p>
+                    Here is the schematics, and PCB layout of the Health Checker.
+                </p>
+                <img src="../images/projects/HealthCheck/HealthChecker_schematics.png" alt="schematics" class="post-image">
+                <img src="../images/projects/HealthCheck/HealthCheck_pcb.jpg" alt="pcb" class="post-image">
+                <p>
+                    Here is a screenshot from the breadboard I tested on.
+                </p>
+                <img src="../images/projects/HealthCheck/HealthCheck_board-pic.jpg" alt="board" class="post-image">
+                
+
+
             </div>
         </div>
     </article>
